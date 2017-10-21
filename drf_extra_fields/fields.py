@@ -69,7 +69,7 @@ class Base64FieldMixin(object):
         raise NotImplemented
 
     def to_representation(self, file):
-        if self.represent_in_base64:
+        if self.represent_in_base64 and file:
             try:
                 with open(file.path, 'rb') as f:
                     return base64.b64encode(f.read()).decode()
